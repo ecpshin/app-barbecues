@@ -30,6 +30,16 @@ CREATE TABLE IF NOT EXISTS pedidos  (
   fechado BOOLEAN DEFAULT FALSE
 );
 
-#------ DATA -----
+CREATE VIEW tb_pedidos AS SELECT pedidos.id, pedidos.mesa, pedidos.atendente, cardapio.tipo, cardapio.descricao, 
+pedidos.quantidade, cardapio.preco, mesas.ocupada as fechado 
+FROM pedidos JOIN cardapio ON pedidos.cardapio = cardapio.id 
+JOIN mesas ON pedidos.mesa = mesas.id ORDER BY pedidos.mesa ASC;
+
 INSERT INTO atendentes (nome) VALUES ('sergio'), ('lindalva'), ('nicholas'), ('marcela'), ('Custom');
+INSERT INTO cardapio (tipo, descricao, preco) VALUES ('Espetinho', 'Espetinho de frango', 500), 
+('Espetinho', 'Espetinho de lingua', 500),
+('Bebida', 'Cerveja Skol (lata)', 500),
+('Bebida', 'Cachaça Matauta (dose)', 300)
+('Espetinho', 'Pão de alho', 500)
+('Espetinho', 'Espetinho de carne', 500);
 INSERT INTO mesas (ocupada) VALUES ('FALSE'), ('FALSE'), ('FALSE'), ('FALSE'), ('FALSE'), ('FALSE');
