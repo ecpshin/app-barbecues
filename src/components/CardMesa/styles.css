@@ -1,0 +1,108 @@
+span{
+    width: 100%;
+    display: flex;
+    font-size: 1.2rem;
+    overflow: hidden;
+}
+
+.card {
+    width: 180px;
+    min-height: 150px;
+    padding: 3px;
+    gap: 3px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.card_header {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #818181;
+    border-radius: 4px;
+}
+
+.card_content{
+    width: 100%;
+    height: 100px;
+    padding: 3px 5px;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid #818181;
+    border-radius: 4px;
+}
+
+.card_footer {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-color: #c2c2c2;
+    border: 1px solid #818181; 
+    border-radius: 4px;   
+}
+
+.btn {
+    border: transparent;
+    width: 40px;
+    height: 28px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;    
+}
+
+.btn-list:hover{    
+    background-color: hsla(41, 100%, 50%, 1);;
+}
+
+.btn-add:hover{
+    background-color: rgb(3, 0, 187);
+}
+
+.btn-pay:hover{
+    background-color: rgb(9, 90, 9);
+}
+
+.btn-list{
+    background-color: hsla(41, 100%, 50%, .2);
+}
+
+.btn-add{
+    background-color: hsl(241, 100%, 37%, 0.2);
+}
+
+.btn-pay{
+    background-color: hsla(120, 100%, 13%, 0.2);
+}
+
+.btn-icons{
+    font-size: 16px!important;
+    color:hsl(0, 0%, 100%)!important;
+}
+
+.desocupada{
+    background-color: #91cc99;
+}
+
+.ocupada{
+    background-color: rgb(253, 166, 166);
+}
+

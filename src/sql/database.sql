@@ -1,0 +1,35 @@
+DROP TABLE IF EXISTS pedidos;
+DROP TABLE IF EXISTS atendentes;
+DROP TABLE IF EXISTS mesas;
+DROP TABLE IF EXISTS cardapio;
+
+CREATE TABLE IF NOT EXISTS mesas(
+  id SERIAL PRIMARY KEY,
+  ocupada BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE IF NOT EXISTS atendentes(
+	id SERIAL PRIMARY KEY,
+  nome TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS cardapio(
+	id SERIAL PRIMARY KEY,
+  tipo VARCHAR(50),
+  descricao TEXT NOT NULL,
+  preco INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS pedidos  (
+	id SERIAL NOT NULL PRIMARY KEY,
+  atendente INT NOT NULL REFERENCES atendentes(id) ON UPDATE CASCADE ON DELETE NO ACTION,
+  mesa INT NOT NULL REFERENCES mesas(id) ON UPDATE CASCADE ON DELETE NO ACTION,
+  cardapio INT NOT NULL REFERENCES cardapio(id) ON UPDATE CASCADE ON DELETE NO ACTION, 
+  quantidade INT DEFAULT 1,
+  preco INT NOT NULL,
+  fechado BOOLEAN DEFAULT FALSE
+);
+
+#------ DATA -----
+INSERT INTO atendentes (nome) VALUES ('sergio'), ('lindalva'), ('nicholas'), ('marcela'), ('Custom');
+INSERT INTO mesas (ocupada) VALUES ('FALSE'), ('FALSE'), ('FALSE'), ('FALSE'), ('FALSE'), ('FALSE');
